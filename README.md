@@ -1,3 +1,3 @@
 По очереди:
- npm install react
+ npm install react,
  npm run dev
