@@ -1,0 +1,132 @@
+.romah {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .imageWrapper {
+    width: 500px;
+    height: 500px;
+    border-radius: 2%;
+    overflow: hidden;
+    box-shadow: 0 0 40px rgba(0, 123, 255, 0.7);
+    transition: transform 0.2s ease;
+  
+    &.shake {
+      animation: shake 0.3s ease;
+    }
+  
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      
+    }
+    &.red-flash {
+        animation: redFlash 0.4s ease;
+      }
+    }
+    
+    @keyframes redFlash {
+      0% {
+        filter: brightness(1) sepia(1) hue-rotate(-30deg) saturate(4);
+      }
+      100% {
+        filter: none;
+      }
+  }
+  
+  .button {
+    margin-top: 20rem;
+    padding: 12px 24px;
+    background-color: #007bff;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.4);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    position: relative;
+    z-index: 2;
+  
+    &:hover {
+      transform: translateY(-2px);
+    }
+  
+    &:active {
+      transform: translateY(2px);
+      background-color: white;
+      color: #007bff;
+      box-shadow: 0 0 40px rgba(0, 123, 255, 1);
+    }
+  }
+  
+  // Вылетающие фотки
+  .flyerWrapper {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    left: 50%;
+    bottom: 11rem;
+    transform: translateX(-50%);
+    z-index: 1;
+    pointer-events: none;
+  
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  
+  // Траектории
+  .trajectory-1 {
+    animation: flyAndFlip1 1.1s ease forwards;
+  }
+  .trajectory-2 {
+    animation: flyAndFlip2 1.1s ease forwards;
+  }
+  .trajectory-3 {
+    animation: flyAndFlip3 1.1s ease forwards;
+  }
+  .trajectory-4 {
+    animation: flyAndFlip4 1.1s ease forwards;
+  }
+  
+  @keyframes flyAndFlip1 {
+    0%   { transform: translate(-50%, 0) rotateY(0) scale(1); opacity: 1; }
+    40%  { transform: translate(-100px, -150px) rotateY(180deg) scale(0.9); opacity: 0.8; }
+    100% { transform: translate(-50%, -350px) scale(0.1); opacity: 0; }
+  }
+  @keyframes flyAndFlip2 {
+    0%   { transform: translate(-50%, 0) rotateY(0) scale(1); opacity: 1; }
+    40%  { transform: translate(100px, -130px) rotateY(180deg) scale(0.9); opacity: 0.8; }
+    100% { transform: translate(-50%, -350px) scale(0.1); opacity: 0; }
+  }
+  @keyframes flyAndFlip3 {
+    0%   { transform: translate(-50%, 0) rotateY(0) scale(1); opacity: 1; }
+    40%  { transform: translate(-60px, -200px) rotateY(180deg) scale(0.9); opacity: 0.8; }
+    100% { transform: translate(-50%, -350px) scale(0.1); opacity: 0; }
+  }
+  @keyframes flyAndFlip4 {
+    0%   { transform: translate(-50%, 0) rotateY(0) scale(1); opacity: 1; }
+    40%  { transform: translate(60px, -180px) rotateY(180deg) scale(0.9); opacity: 0.8; }
+    100% { transform: translate(-50%, -350px) scale(0.1); opacity: 0; }
+  }
+  
+  // Тряска главной фотки
+  @keyframes shake {
+    0% { transform: translate(0); }
+    25% { transform: translate(-4px, 2px); }
+    50% { transform: translate(3px, -2px); }
+    75% { transform: translate(-2px, 3px); }
+    100% { transform: translate(0); }
+  }
+  
+  
